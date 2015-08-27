@@ -1,28 +1,29 @@
 
 
 public class ttt {
-	public static void main (String [] args)
-	{private String[][] board;
-     private static int ROWS = 3;
-     private static int COLUMNS = 3;
-     
-     public ttt()
-     {
-          board = new String[ROWS][COLUMNS];
-          initializeBoard();
-     }
-     
-     
-     /** initialize board*/
-     public void initializeBoard ()
-     {
-          for (int i = 0; i < ROWS; i++)
-               for (int j = 0; j < COLUMNS; j++)
-               board [i][j] = " ";
-     
+	
+	
+	//define board
+	static String[][] board = new String[3][3];
+	
+	//main method
+	public static void main(String[] args) {	
+		System.out.println("shall we play a game?");
+		initializeboard(board);
+		
 	}
-     
-     
+
+	//initialize board
+	public static void initializeboard(String[][] gameBoard){	
+		for (int j = 0; j < 3; j++) {
+			for (int i = 0; i < 3; i++) {
+				System.out.print("[ " + gameBoard[i][j] + " ]");
+			}
+				System.out.println("");
+			}
+		}
+	
+	
      //check if occupied
      //if (!board [(i)][j)].equals (" "))
      //keep going
@@ -35,31 +36,38 @@ public class ttt {
      
      /** check winner*/
      
-     public String checkBoard ()
+     public  boolean checkBoard ()
      {
-    	  for (int i = 0; i < ROWS; i ++)
+    	  for (int i = 0; i < 3; i ++){
               if (board [i][0].equals(board [i][1]) &&
                   board[i][1].equals(board[i][2]) &&
-                  !board[i][0].equals (" "))
-            	  // need more 
+                  !board[i][0].equals (" ")){
+            	  return false;}}
+            	   
             	  
-      	  for (int j = 0; j < COLUMNS; j ++)
+      	  for (int j = 0; j < 3; j ++){
               if (board [0][j].equals(board [1][j]) &&
                   board[1][j].equals(board[2][j]) &&
-                  !board[0][j].equals (" "))
-              	 // same here
-            	  
+                  !board[0][j].equals (" ")){
+            	  return false;}}
+          
+          
           if (board [0][0].equals(board [1][1]) &&
                   board[1][1].equals(board[2][2]) &&    
-                  !board[0][0].equals (" "))
+                  !board[0][0].equals (" ")){ return false;}
         	  
           if (board [0][2].equals(board [1][1]) &&
                   board[1][1].equals(board[2][0]) && 
-                  !board[0][2].equals (" "))
+                  !board[0][2].equals (" ")){ return false;}
         	  
         	  
-        	  System.out.println("You won!");
+        
+		  return true;
      }
+ 
+     
+     
+     
      // end initializeBoard method
      
      //define string instances for player1's mark x, player2's mark o, and the board;
