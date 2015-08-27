@@ -2,6 +2,11 @@
 
 public class ttt {
 	
+	public static void main (String [] args)
+	{private String[][] board;
+     private static int ROWS = 3;
+     private static int COLUMNS = 3;
+     
      //define string instances for player1's mark x, player2's mark o, and the board;
 	//initializing the board to a 3x3 array;
 	
