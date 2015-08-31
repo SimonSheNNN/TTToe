@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class ttt {
 	
 	
+	private static final String s="X" ;
+	private static final String d="o" ;
+	static int turn=0;
 	//define board
 	static String[][] board = new String[3][3];
 	
@@ -12,7 +15,9 @@ public class ttt {
 	public static void main(String[] args) {	
 		System.out.println("shall we play a game?");
 		initializeboard(board);
-		
+		boolean player1 = true;
+		player1 = !player1;
+		turn=0;
 	}
 
 	//initialize board
@@ -21,31 +26,43 @@ public class ttt {
 			for (int i = 0; i < 3; i++) {
 				System.out.print("[ " + gameBoard[i][j] + " ]");
 			}
-				System.out.println("");
+				System.out.println("");}
 			}
 		
 	
 	
-	
+		public static int[][] Tic(int[][] gameBoard, Boolean player1) {
 	Scanner xenter= new Scanner(System.in); // store the x coordinate
 	Scanner yenter = new Scanner(System.in); // store the y coordinate
 	System.out.println("Please enter your desired X coordinate");
-	int x = xenter.nextInt();
+	int i = xenter.nextInt();
 	System.out.println("Please enter your desired Y coordinate");
-	int y = yenter.nextInt(); 
-			
-			
+	int j = yenter.nextInt(); 
 	
+	//while((i<1 || i>9))
+	//{System.out.print("please enter a valid coordinate");
+	//	i=xenter.nextInt();
+	//}
+	//while((j<1 || j>9))
+	//{System.out.print("please enter a valid coordinate");
+	//	j=yenter.nextInt();
+	//}
 	
-	if (int turn = 0) {
-	
-		
-	turn=1
+	turn++;
+	if (player1) {
+		board[i][j] = s;
+	} else {
+		board[i][j] = d;
 	}
 	
-	if (turn=1) {
+	
+	return gameBoard;
+}
+	
+			
+	
+
 		
-	}
 	
      //check if occupied
      //if (!board [(i)][j)].equals (" "))
@@ -59,13 +76,12 @@ public class ttt {
      
      /** check winner*/
      
-     public  boolean checkBoard ()
+     public boolean checkBoard ()
      {
     	  for (int i = 0; i < 3; i ++){
               if (board [i][0].equals(board [i][1]) &&
                   board[i][1].equals(board[i][2]) &&
-                  !board[i][0].equals (" ")){
-            	  return false;}}
+                  !board[i][0].equals (" ")){ return false;}}
             	   
             	  
       	  for (int j = 0; j < 3; j ++){
@@ -82,12 +98,31 @@ public class ttt {
           if (board [0][2].equals(board [1][1]) &&
                   board[1][1].equals(board[2][0]) && 
                   !board[0][2].equals (" ")){ return false;}
-        	  
-        	  
-        
-		  return true;
-     }
- 
+        	 
+         if (turn==9);
+         { 
+         return true;}
+         
+         }
+          
+    // call checkboard, 
+    // {
+    //if (return false)
+    // if (board [i][0]==s)
+    //	 find winner...
+    //}
+    // if true,
+    // System.out.println ("it's a draw");
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
      
      
      
