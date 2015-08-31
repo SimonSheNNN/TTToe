@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 
 
 public class ttt {
@@ -21,8 +23,29 @@ public class ttt {
 			}
 				System.out.println("");
 			}
-		}
+		
 	
+	
+	
+	Scanner xenter= new Scanner(System.in); // store the x coordinate
+	Scanner yenter = new Scanner(System.in); // store the y coordinate
+	System.out.println("Please enter your desired X coordinate");
+	int x = xenter.nextInt();
+	System.out.println("Please enter your desired Y coordinate");
+	int y = yenter.nextInt(); 
+			
+			
+	
+	
+	if (int turn = 0) {
+	
+		
+	turn=1
+	}
+	
+	if (turn=1) {
+		
+	}
 	
      //check if occupied
      //if (!board [(i)][j)].equals (" "))
