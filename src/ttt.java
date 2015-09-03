@@ -10,30 +10,41 @@ public class ttt {
 	static int turn=0;
 	static String[][] board = new String[3][3];
 	static boolean player1 = true;
-	
-	
+
+
 	
 	public static void main(String[] args) {	
 		System.out.println("shall we play a game?");
-		initializeboard(board);
-		 Tic(board);
-		player1 = !player1;
+		initializeBoard(board);
 		turn=0;
+		Tic(board);
+		player1 = !player1;
+		
+		if (turn==9){
+		System.out.println("it's a draw");
+		System.exit(0);
+		}//close if
+		
 		if (checkBoard()) { 
 		System.out.println("We have a winner! Congrats!");
 		System.exit(0);
 		}//close checkboard
-		if (turn==9){System.out.println("it's a draw");}
+		
+		else { 
+		Tic(board);
+		player1 = !player1;}
+		
 	}//close main
 
 	
 	
 	//initialize board
-	public static void initializeboard(String[][] gameBoard){	
+	public static void initializeBoard(String[][] board){	
 		for (int j = 0; j < 3; j++) {
 			for (int i = 0; i < 3; i++) {
 				System.out.print("[ 0 ]");
-			}//close for loop
+				board[i][j]="";
+			}//close first loop
 				System.out.println("");}//close 2nd loop
 			}//close initializeboard
 		
@@ -46,9 +57,10 @@ public class ttt {
 	System.out.println("Please enter your desired Y coordinate");
 	int j = in.nextInt(); 
 	
-	//if((in.nextInt()<1 || in.nextInt() >3))
-	//{System.out.print("please enter a valid coordinate");
-	//}
+	if((in.nextInt()<1 || in.nextInt() >3))
+	{System.out.print("please enter a valid coordinate");
+	Tic(board);
+	}
 	
 	turn++;
 	if (player1) {
@@ -97,26 +109,5 @@ public class ttt {
          
          }//close checkboard
           
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-	//make and track moves by each player
-	//two new int a and b, as the coordinates player typed in
-	//a=b=-1
-	//a + the number player typed = the x coordinate of this move //must be integer
-	//a<= 3, or notice the player to reenter
-	//check if the space is occupied, if so, print reenter
-	//same with b
-	//print the string play1/2's mark as a and b's coordinates indicate
 
 }
