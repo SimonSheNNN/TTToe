@@ -50,7 +50,7 @@ public class ttt {
 			System.out.println("Please enter your desired Y coordinate from 1-3");
 			int j = in.nextInt()-1;
 			
-			if (board[i][j]==" x "||board[i][j]=="o"){
+			if (board[i][j]==" x "||board[i][j]==" o "){
 				System.out.println("please reenter an unoccupied spot");
 			}
 			
