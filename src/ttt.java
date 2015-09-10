@@ -40,31 +40,36 @@ public class ttt {
 	}
 
 	/**
-	 * this is to record the user input and convert it as a "x" or "o" on the
-	 * array
-	 */
+	 * this is to record the user input and convert it as a "x" or "o" on the array*/
 
 	public static String[][] tic(String[][] board, boolean player1) {
 		Scanner in = new Scanner(System.in); // store the x coordinate
 		while (true) {
-			System.out
-					.println("Please enter your desired X coordinate from 1-3");
+			System.out.println("Please enter your desired X coordinate from 1-3");
 			int i = in.nextInt()-1;
-			System.out
-					.println("Please enter your desired Y coordinate from 1-3");
+			System.out.println("Please enter your desired Y coordinate from 1-3");
 			int j = in.nextInt()-1;
-			if ((i >= 0 || i <= 2)) {
+			
+			if (board[i][j]==" x "||board[i][j]=="o"){
+				System.out.println("please reenter an unoccupied spot");
+			}
+			
+			else{
+				if ((i >= 0 || i <= 2)) {
 					if (player1) {
-						board[i][j] = " X ";
+						board[i][j] = " x ";
 						return board;
 					} else {
 						board[i][j] = " o ";
 						return board;
 					}
+				}
 			}
 			System.out.println("Error in your input");
 		}
 	}
+	
+
 
 	/**
 	 * check winner, include five conditions: from top to bottom, left to right,
@@ -98,7 +103,9 @@ public class ttt {
 				&& turn >= 5) {
 			System.out.println("We have a winner!: player" + player );
 			return false;
-		} else if (board[0][2] == board[1][1] && board[1][1] == board[2][0]
+		} 
+		
+		else if (board[0][2] == board[1][1] && board[1][1] == board[2][0]
 				&& turn >= 5) {
 			System.out.println("We have a winner!: player" + player );
 			return false;
@@ -107,7 +114,9 @@ public class ttt {
 		else if (turn >= 9) {
 			System.out.println("Tie game");
 			return false;
-		} else {
+		}
+		
+		else {
 			return true;
 		}
 
